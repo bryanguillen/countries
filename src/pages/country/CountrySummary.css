@@ -1,0 +1,49 @@
+.country-summary {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.country-summary-flag {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.country-summary-flag-container {
+  height: 250px;
+  margin: 0 auto 10px auto;
+  width: 350px;
+}
+
+.country-summary-other-info {
+  margin-bottom: 10px;
+}
+
+.country-summary-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+@media only screen and (min-width: 992px) {
+  .country-summary {
+    flex-direction: row;
+  }
+
+  .country-summary-other-info-container {
+    margin-top: 20px;
+  }
+
+  .country-summary-flag-parent-container,
+  .country-summary-text-container {
+    width: 50%;
+  }
+
+  .country-summary-flag-container,
+  .country-summary-other-info,
+  .country-summary-name {
+    margin-bottom: 0px;
+  }
+}

@@ -1,0 +1,18 @@
+.countries-container {
+  align-items: center; 
+  display: flex;
+  flex-direction: column;
+}
+
+.countries-container .country-card-wrapper {
+  margin-bottom: 10px;
+}
+
+@media only screen and (min-width: 992px) {
+  .countries-container {
+    display: grid;
+    grid-template-columns: repeat(4, 200px);
+    justify-content: space-between;
+    row-gap: 20px;
+  }
+}
