@@ -18,7 +18,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -57,7 +59,5 @@
     "@storybook/react": "^6.3.7",
     "gh-pages": "^3.2.3"
   },
-  "homepage": "http://bryg217.github.io/countries",
-  "predeploy": "npm run build",
-  "deploy": "gh-pages -d build"
+  "homepage": "http://bryg217.github.io/countries"
 }
