@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from 'react-router-dom';
+import { HomeWrapper as Home } from './pages/home/Home'
+import { CountrySummaryWrapper as CountrySummary } from './pages/country/CountrySummary'
+import NavBar from './components/nav-bar/NavBar'
+import AppContext from './app-context'
 
 function App() {
+  const [appState, setAppState] = useState({ countries: [] })
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <AppContext.Provider value={{ appState, setAppState }}>
+        <div className="app">
+          <NavBar/>
+          <Switch>
+            <Route component={CountrySummary} path="/country/:name"/>
+            <Route component={Home} path="/"/>
+          </Switch>
+        </div>
+      </AppContext.Provider>
+    </Router>
   );
 }
 
