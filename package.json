@@ -54,6 +54,10 @@
     "@storybook/addon-links": "^6.3.7",
     "@storybook/node-logger": "^6.3.7",
     "@storybook/preset-create-react-app": "^3.2.0",
-    "@storybook/react": "^6.3.7"
-  }
+    "@storybook/react": "^6.3.7",
+    "gh-pages": "^3.2.3"
+  },
+  "homepage": "http://bryg217.github.io/countries",
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build"
 }
