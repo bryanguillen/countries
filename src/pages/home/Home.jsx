@@ -3,7 +3,7 @@ import CountriesContainer from '../../components/countries-container/CountriesCo
 import FilterCountriesTextInput from '../../components/filter-countries-text-input/FilterCountriesTextInput'
 import FilterRegionDropdown from '../../components/filter-region-dropdown/FilterRegionDropdown'
 import { extractRegions, filterCountries } from './home-utils'
-import AppContext from '../../app-context'
+import { useApp, useAppDispatch } from '../../state'
 
 import './Home.css'
 
@@ -51,7 +51,8 @@ function HomeFormControls({
 }
 
 export function HomeWrapper() {
-  const { appState, setAppState } = useContext(AppContext)
+  const dispatch = useAppDispatch()
+  const { countries } = useApp()
   const [filterCountriesValue, setFilterCountriesValue] = useState('')
   const [filterRegionValue, setFilterRegionsValue] = useState('')
   const [loading, setLoading] = useState(true)
@@ -61,10 +62,15 @@ export function HomeWrapper() {
       /**
        * HACK: Only fetch once
        */
-      if (appState.countries.length === 0) {
+      if (countries.length === 0) {
         const response = await fetch('https://restcountries.com/v2/all')
         const data = await response.json()
-        setAppState({ countries: data })
+        dispatch({
+          type: 'LOAD_COUNTRIES',
+          payload: {
+            countries: data
+          }
+        })
       }
       setLoading(false)
     })()
@@ -73,12 +79,12 @@ export function HomeWrapper() {
   return (
     <>
       {
-        !loading && appState.countries.length > 0 ?
+        !loading && countries.length > 0 ?
           <HomeCore
-            countries={appState.countries}
+            countries={countries}
             onChangeForCountriesInput={event => setFilterCountriesValue(event.target.value)}
             onChangeForRegionInput={event => setFilterRegionsValue(event.target.value)}
-            regions={extractRegions(appState.countries)}
+            regions={extractRegions(countries)}
             valueForFilterCountries={filterCountriesValue}
             valueForFilterRegion={filterRegionValue}
           /> :
