@@ -62,12 +62,12 @@ export function HomeWrapper() {
        * HACK: Only fetch once
        */
       if (appState.countries.length === 0) {
-        const response = await fetch('https://restcountries.eu/rest/v2/all')
+        const response = await fetch('https://restcountries.com/v2/all')
         const data = await response.json()
         setAppState({ countries: data })
       }
       setLoading(false)
-    })();
+    })()
   }, [])
 
   return (
