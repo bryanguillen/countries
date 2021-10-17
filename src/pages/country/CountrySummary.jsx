@@ -1,6 +1,6 @@
 import React, { useEffect, useContext, useState } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
-import AppContext from '../../app-context'
+import { useApp } from '../../state'
 
 import './CountrySummary.css'
 
@@ -35,7 +35,7 @@ export function CountrySummaryCore({
 }
 
 export function CountrySummaryWrapper() {
-  const { appState } = useContext(AppContext)
+  const { countries } = useApp()
   const { name } = useParams()
   const history = useHistory()
   const [countryData, setCountryData] = useState({})
@@ -45,13 +45,13 @@ export function CountrySummaryWrapper() {
     /**
      * Only load if there is country data
      */
-    if (appState.countries.length === 0) {
+    if (countries.length === 0) {
       return history.push('/')
     } else {
       /**
        * Assume country exists for now
        */
-      setCountryData(appState.countries.find(country => country.name.trim() === name))
+      setCountryData(countries.find(country => country.name.trim() === name))
       setLoading(false)
     }
   }, [])
