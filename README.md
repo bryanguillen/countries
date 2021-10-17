@@ -38,8 +38,9 @@ section.**
 Below, I list the files/directories that are of particular interest for this project.
 
 1. `./src/App.js`
-2. `./src/pages/home/`
-3. `./src/components/`
+2. `./src/state.js`
+3. `./src/pages/home/`
+4. `./src/components/`
 
 ## Running App Locally
 
