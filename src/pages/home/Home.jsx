@@ -24,6 +24,7 @@ export function HomeCore({
         onChangeForRegionInput={onChangeForRegionInput}
         optionsForRegionDropdown={regions}
         valueForFilterCountries={valueForFilterCountries}
+        valueForFilterRegion={valueForFilterRegion}
       />
       <CountriesContainer countries={filteredCountries}/>
     </div>
@@ -34,7 +35,8 @@ function HomeFormControls({
   onChangeForCountriesInput,
   onChangeForRegionInput,
   optionsForRegionDropdown,
-  valueForFilterCountries
+  valueForFilterCountries,
+  valueForFilterRegion
 }) {
   return (
     <div className="home-form-controls">
@@ -45,6 +47,7 @@ function HomeFormControls({
       <FilterRegionDropdown
         onChange={onChangeForRegionInput}
         options={optionsForRegionDropdown}
+        value={valueForFilterRegion}
       />
     </div>
   )
