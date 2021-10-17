@@ -16,6 +16,24 @@ const reducer = (state, action) => {
         ...state,
         countries
       }
+    case 'UPDATE_COUNTRY_FILTER':
+      const { countryFilter } = action.payload
+      return {
+        ...state,
+        home: {
+          ...state.home,
+          filterCountriesValue: countryFilter
+        }
+      }
+    case 'UPDATE_REGION_FILTER':
+      const { regionFilter } = action.payload
+      return {
+        ...state,
+        home: {
+          ...state.home,
+          filterRegionValue: regionFilter
+        }
+      }
     default:
       throw new Error(`Unknown action: ${action.type}`)
   }
