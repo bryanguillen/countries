@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
   BrowserRouter as Router,
   Switch,
@@ -7,14 +7,20 @@ import {
 import { HomeWrapper as Home } from './pages/home/Home'
 import { CountrySummaryWrapper as CountrySummary } from './pages/country/CountrySummary'
 import NavBar from './components/nav-bar/NavBar'
-import AppContext from './app-context'
+import { AppProvider } from './state'
 
 function App() {
-  const [appState, setAppState] = useState({ countries: [] })
+  const initialState = {
+    countries: [],
+    home: {
+      filterCountriesValue: '',
+      filterRegionValue: ''
+    }
+  }
 
   return (
     <Router>
-      <AppContext.Provider value={{ appState, setAppState }}>
+      <AppProvider initialState={initialState}>
         <div className="app">
           <NavBar/>
           <Switch>
@@ -22,7 +28,7 @@ function App() {
             <Route component={Home} path="/"/>
           </Switch>
         </div>
-      </AppContext.Provider>
+      </AppProvider>
     </Router>
   );
 }
