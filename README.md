@@ -52,5 +52,6 @@ Below, I list the files/directories that are of particular interest for this pro
 
 This project could be improved in many ways, and worth noting:
 
-1. Performance
+1. Performance: Lazy load countries at home page
 2. UI: Colors and data
+3. UX: When user hits back, take user back to last scroll position
