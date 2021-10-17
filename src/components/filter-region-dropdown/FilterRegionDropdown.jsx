@@ -4,11 +4,12 @@ import './FilterRegionDropdown.css'
 
 export default function FilterRegionDropdown({
   onChange,
-  options
+  options,
+  value
 }) {
   return (
-    <select className="filter-region-dropdown" onChange={onChange}>
-      <option defaultValue value={''}>None</option>
+    <select value={value} className="filter-region-dropdown" onChange={onChange}>
+      <option value={''}>None</option>
       {options.map(option => (
         <option key={option} value={option}>{option}</option>
       ))}
