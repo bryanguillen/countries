@@ -10,17 +10,9 @@ import NavBar from './components/nav-bar/NavBar'
 import { AppProvider } from './state'
 
 function App() {
-  const initialState = {
-    countries: [],
-    home: {
-      filterCountriesValue: '',
-      filterRegionValue: ''
-    }
-  }
-
   return (
     <Router>
-      <AppProvider initialState={initialState}>
+      <AppProvider>
         <div className="app">
           <NavBar/>
           <Switch>

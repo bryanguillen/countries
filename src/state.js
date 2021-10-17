@@ -38,8 +38,15 @@ const reducer = (state, action) => {
       throw new Error(`Unknown action: ${action.type}`)
   }
 }
+const initialState = {
+  countries: [],
+  home: {
+    filterCountriesValue: '',
+    filterRegionValue: ''
+  }
+}
 
-export const AppProvider = ({ initialState, children }) => {
+export const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
 
   return (
