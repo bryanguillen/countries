@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import CountriesContainer from '../../components/countries-container/CountriesContainer'
 import FilterCountriesTextInput from '../../components/filter-countries-text-input/FilterCountriesTextInput'
 import FilterRegionDropdown from '../../components/filter-region-dropdown/FilterRegionDropdown'
@@ -52,9 +52,7 @@ function HomeFormControls({
 
 export function HomeWrapper() {
   const dispatch = useAppDispatch()
-  const { countries } = useApp()
-  const [filterCountriesValue, setFilterCountriesValue] = useState('')
-  const [filterRegionValue, setFilterRegionsValue] = useState('')
+  const { countries, home: { filterRegionValue, filterCountriesValue } } = useApp()
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -82,8 +80,8 @@ export function HomeWrapper() {
         !loading && countries.length > 0 ?
           <HomeCore
             countries={countries}
-            onChangeForCountriesInput={event => setFilterCountriesValue(event.target.value)}
-            onChangeForRegionInput={event => setFilterRegionsValue(event.target.value)}
+            onChangeForCountriesInput={event => dispatch({ type: 'UPDATE_COUNTRY_FILTER', payload: { countryFilter: event.target.value } })}
+            onChangeForRegionInput={event => dispatch({ type: 'UPDATE_REGION_FILTER', payload: { regionFilter: event.target.value } })}
             regions={extractRegions(countries)}
             valueForFilterCountries={filterCountriesValue}
             valueForFilterRegion={filterRegionValue}
