@@ -8,6 +8,8 @@
 
 **Note: Only tested on latest versions of Firefox and Chrome.**
 
+**Note: The implementation for managing state comes from my [blog post](https://bryg217.github.io/bryans-blog/posts/2-state/).**
+
 "Countries" is a small project where a user can load all of the countries
 on the home page, all at one time, and then, the user could click on the
 country cards, and then see a "summary" page for said country.
