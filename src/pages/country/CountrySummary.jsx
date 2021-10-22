@@ -24,7 +24,7 @@ export function CountrySummaryCore({
         <div className="country-summary-name">{name}</div>
         <div className="country-summary-other-info-container">
           <div className="country-summary-other-info">Native Name: {nativeName}</div>
-          <div className="country-summary-other-info">Population: {population}</div>
+          <div className="country-summary-other-info">Population: {population.toLocaleString('en-us')}</div>
           <div className="country-summary-other-info">Region: {region}</div>
           <div className="country-summary-other-info">Sub Region: {subregion}</div>
           <div className="country-summary-other-info">Capital: {capital}</div>
@@ -39,7 +39,6 @@ export function CountrySummaryWrapper() {
   const { name } = useParams()
   const history = useHistory()
   const [countryData, setCountryData] = useState({})
-  const [loading, setLoading] = useState()
 
   useEffect(() => {
     /**
@@ -52,17 +51,16 @@ export function CountrySummaryWrapper() {
        * Assume country exists for now
        */
       setCountryData(countries.find(country => country.name.trim() === name))
-      setLoading(false)
     }
   }, [])
 
   return (
     <>
-      {!loading ?
+      {countryData.name ?
           <CountrySummaryCore
             flag={countryData.flag}
             nativeName={countryData.nativeName}
-            population={countryData.population.toLocaleString('en-us')}
+            population={countryData.population}
             region={countryData.region}
             subregion={countryData.subregion}
             capital={countryData.capital}
