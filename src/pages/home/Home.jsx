@@ -64,14 +64,18 @@ export function HomeWrapper() {
        * HACK: Only fetch once
        */
       if (countries.length === 0) {
-        const response = await fetch('https://restcountries.com/v2/all')
-        const data = await response.json()
-        dispatch({
-          type: 'LOAD_COUNTRIES',
-          payload: {
-            countries: data
-          }
-        })
+        try {
+          const response = await fetch('https://restcountries.com/v2/all')
+          const data = await response.json()
+          dispatch({
+            type: 'LOAD_COUNTRIES',
+            payload: {
+              countries: data
+            }
+          })
+        } catch(error) {
+          console.log(error)
+        }
       }
       setLoading(false)
     })()
