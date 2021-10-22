@@ -16,7 +16,7 @@ const mockCountry = {
   region: 'Americas',
   population: 350000000,
   capital: 'Washington D.C.',
-  flag: 'https://restcountries.eu/data/usa.svg',
+  flag: 'https://flagcdn.com/us.svg',
   nativeName: 'US',
   subregion: 'North America'
 }

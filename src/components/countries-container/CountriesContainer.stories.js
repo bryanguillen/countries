@@ -11,7 +11,7 @@ const Template = args => <CountriesContainer {...args}/>
 // used multiple times for simplicity
 const mockCountry = {
   capital: 'Washington D.C.',
-  flag: 'https://restcountries.eu/data/usa.svg',
+  flag: 'https://flagcdn.com/us.svg',
   name: 'United States of America',
   population: 335000000,
   region: 'America'
