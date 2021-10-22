@@ -11,8 +11,9 @@
 **Note: The implementation for managing state comes from my [blog post](https://bryg217.github.io/bryans-blog/posts/2-state/).**
 
 "Countries" is a small project where a user can load all of the countries
-on the home page, all at one time, and then, the user could click on the
-country cards, and then see a "summary" page for said country.
+on the home page (all at once).  Once the home page is loaded, the user could
+then interact with the application by click on the countries to learn more
+about each -- a summary page of sorts.
 
 This project is actually a more "barebones" version of
 [this](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca)
@@ -24,16 +25,11 @@ Contrary to the link, I stripped a few things out of my implementation:
 * Background Color
 * Dark Theme
 * Additional Content + Buttons in Summary Page
-* Not Optimized (i.e. all countries are loaded at once, and filtering could be better)
+* Not Optimized (i.e. all countries are loaded at once)
 
-The reason for this is that my implementation was really focused around the
-fetching of data, managing that state across different routes, and also with
-different filters applied.
+The reason for this is that my implementation was really focused around:  **state management**.
 
-**Note: Given the all of the information above, it is worth emphasizing that
-this implementation is not the most performant nor entirely complete from
-a feature standpoint, as mentioned above.  For more information, see improvements
-section.**
+Here, the focus was around implementing state management without Redux.  As mentioned above, you could check more of that out at my blog, [here](https://bryg217.github.io/bryans-blog/posts/2-state/).
 
 ## Files of Focus
 
@@ -56,4 +52,3 @@ This project could be improved in many ways, and worth noting:
 
 1. Performance: Lazy load countries at home page
 2. UI: Colors and data
-3. UX: When user hits back, take user back to last scroll position
