@@ -43,7 +43,7 @@ export function CountrySummaryWrapper() {
 
   useEffect(() => {
     /**
-     * Only load if there is country data
+     * Only load if there is country data; redirect to home if there is no data
      */
     if (countries.length === 0) {
       return history.push('/')
@@ -62,7 +62,7 @@ export function CountrySummaryWrapper() {
           <CountrySummaryCore
             flag={countryData.flag}
             nativeName={countryData.nativeName}
-            population={countryData.population}
+            population={countryData.population.toLocaleString('en-us')}
             region={countryData.region}
             subregion={countryData.subregion}
             capital={countryData.capital}

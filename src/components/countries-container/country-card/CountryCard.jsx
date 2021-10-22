@@ -18,7 +18,7 @@ export default function CountryCard({
       <div className="country-card-info-container">
         <div className="country-card-country-name">{name}</div>
         <div className="country-card-data-container">
-          <div><span className="country-card-data-text-bold">Population: </span>{population}</div>
+          <div><span className="country-card-data-text-bold">Population: </span>{population.toLocaleString('en-us')}</div>
           <div><span className="country-card-data-text-bold">Region: </span>{region}</div>
           <div><span className="country-card-data-text-bold">Capital: </span>{capital}</div>
         </div>
