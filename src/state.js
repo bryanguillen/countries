@@ -8,6 +8,9 @@ import { useReducer, useContext, createContext } from 'react'
 const AppStateContext = createContext()
 const AppDispatchContext = createContext()
 
+/**
+ * @description Global application reducer that handles a hand full of actions
+ */
 const reducer = (state, action) => {
   switch (action.type) {
     case 'LOAD_COUNTRIES':
@@ -47,6 +50,11 @@ const initialState = {
   }
 }
 
+/**
+ * @description Wrapper for using within App.js -- avoids having to import both
+ * providers and thus, helps keep low level state code out of app.js (example
+ * the amount of dispatchers/reducers used changes)
+ */
 export const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
 
@@ -59,5 +67,10 @@ export const AppProvider = ({ children }) => {
   )
 }
 
+/**
+ * @description Mini hooks that can be imported within the page components;
+ * this helps avoid having to import both the context and useContext hook
+ * within the components that use it
+ */
 export const useApp = () => useContext(AppStateContext)
 export const useAppDispatch = () => useContext(AppDispatchContext)
