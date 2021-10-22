@@ -62,6 +62,8 @@ export function HomeWrapper() {
     (async function() {
       /**
        * HACK: Only fetch once
+       * Note: The error below is just logged to the console.  An improvement
+       * would be to add the error to the web page for the user to see.
        */
       if (countries.length === 0) {
         try {
