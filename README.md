@@ -25,7 +25,7 @@ Contrary to the link, I stripped a few things out of my implementation:
 * Background Color
 * Dark Theme
 * Additional Content + Buttons in Summary Page
-* Not Optimized (i.e. all countries are loaded at once)
+* Not Fully Optimized (i.e. lazy loading of images on home is implemented, but all countries are added to the DOM on load, which means 200 plus `div` elements at once)
 
 The reason for this is that my implementation was really focused around:  **state management**.
 
@@ -50,5 +50,5 @@ Below, I list the files/directories that are of particular interest for this pro
 
 This project could be improved in many ways, and worth noting:
 
-1. Performance: Lazy load countries at home page
+1. Performance: Don't add all elements to the DOM on load.
 2. UI: Colors and data
