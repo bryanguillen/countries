@@ -1,4 +1,6 @@
 import React from 'react'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
+import 'react-lazy-load-image-component/src/effects/blur.css'
 
 import './CountryCard.css'
 
@@ -13,7 +15,12 @@ export default function CountryCard({
   return (
     <div className="country-card" onClick={onClick}>
       <div className="country-card-flag-container">
-        <img className="country-card-flag" src={flag} alt={`${name} flag`}/>
+        <LazyLoadImage
+          alt={`${name} flag`}
+          className="country-card-flag"
+          effect="blur"
+          src={flag}
+        />
       </div>
       <div className="country-card-info-container">
         <div className="country-card-country-name">{name}</div>
