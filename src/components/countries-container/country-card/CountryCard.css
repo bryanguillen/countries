@@ -20,15 +20,16 @@
   font-weight: bold;
 }
 
-.country-card-flag-container {
+.country-card-flag-container,
+.country-card-flag-container span { /* Span is from the lazy loading library */
   height: 100px;
 }
 
 .country-card-flag {
   height: 100%;
-  width: 100%;
   object-fit: cover;
   overflow: hidden;
+  width: 100%;
 }
 
 .country-card-info-container {
@@ -41,7 +42,8 @@
 
 .country-card,
 .country-card-flag-container,
-.country-card-info-container {
+.country-card-info-container,
+.country-card-flag-container span {
   box-sizing: border-box;
   width: 200px;
 }
